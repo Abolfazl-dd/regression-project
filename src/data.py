@@ -1,7 +1,11 @@
+import numpy as np
 from sklearn.model_selection import train_test_split
 
 
 def split_data(X, y):
+    if np.asarray(X).ndim != 2:
+        raise ValueError("X must be a 2D feature matrix.")
+
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
