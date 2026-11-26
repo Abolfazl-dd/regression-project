@@ -19,6 +19,11 @@ def test_split_data():
     assert X_train.shape[1] == 1
     assert X_test.shape[1] == 1
 
+    
+    assert np.array_equal(y_test,X_test[:,0] * 3)
+    assert np.array_equal(y_train, X_train[:, 0] * 3)
+
+    
 
 
 
@@ -39,3 +44,5 @@ def test_split_data_rejects_1d_features():
 
     with pytest.raises(ValueError):
         split_data(X, y)
+
+
